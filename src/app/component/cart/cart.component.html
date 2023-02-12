@@ -1,8 +1,9 @@
-<ng-container *ngIf="true">
+<ng-container *ngIf="product.length!=0">
 <div class="container">
 <div class="card-table">
     <div class="cart-product">
         <div class="table table-responsive" ></div>
+        <table>
         <thead>
             <tr>
                 <th>Sr. No.</th>
@@ -27,13 +28,24 @@
             <td>{{item.total}}</td>
             <td><button (click)="removeItem(item)" class="btn btn-danger">DELETE<i class="i.fas.fa-trash-alt"></i></button></td>
             </tr>
+            <tr>
+                <br><br><br>
+                <td colspan="5"></td>
+                <td><button class="btn btn-danger" click="emptycart()">Empty Cart</button></td>
+                <td><button class="btn btn-primary" routerLink="/products">Shop Now</button></td>
+                <td><button class="btn btn-success" routerLink="/products">Explore</button></td>
+                <td><div class="blink-bg"><strong>GRAND TOTAL:<i>${{grandTotal}}</i></strong></div></td>
+            </tr>
         </tbody>
+        </table>
     </div>
     
 </div>
+</div>
+</ng-container>
 
 
-<ng-container  *ngIf="false">
+<ng-container  *ngIf="product.length==0">
 <div class="container">
     <div class="card">
         <h5 class="card-title">My Cart</h5>
@@ -42,7 +54,7 @@
     <div class="center">
         <img style="height:162px;width:172px;"src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"  alt="">
         <p>Add Item Of Your need</p>
-        <button class="btn btn-primary">Shop Now</button>
+        <button class="btn btn-primary" routerLink="/products">Shop Now</button>
 
     </div>
 </div>
